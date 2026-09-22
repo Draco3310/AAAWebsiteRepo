@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CoachingCard from '../components/CoachingCard.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import CTASection from '../components/CTASection.astro';
+import { coachingLadder, standaloneServices } from '../data/services';
+---
+
+<BaseLayout
+  title="Coaching Ladder | Advanced Ascension Athletics"
+  description="Explore AAA's structured coaching ladder: Foundation, Performance, Ascension, and Summit. Managed personal coaching in Colorado Springs."
+>
+  <Header slot="header" />
+
+  <!-- Hero Section -->
+  <Hero
+    eyebrow="The AAA Coaching Model"
+    title="You're Not Buying Workouts."
+    highlightText="You're Building A Training System."
+    subtitle="Random workouts produce random fatigue. Structured coaching produces predictable, progressive capability. Every AAA coaching level integrates in-person private coaching, individualized TrainHeroic programming, progression, accountability, and periodic reassessment."
+    primaryCtaText="Start Your Ascension"
+    primaryCtaHref="/start-here?interest=coaching"
+    secondaryCtaText="Book Baseline Assessment ($149)"
+    secondaryCtaHref="/baseline-assessment"
+  />
+
+  <!-- Section 1: System vs Workouts Explanation -->
+  <section class="py-16 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-[#22252C] rounded-lg p-8 sm:p-12 border border-[#2D313A] max-w-4xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-display font-bold uppercase text-[#F5F6F7] mb-4">
+          How AAA Coaching Works
+        </h2>
+        <div class="space-y-4 text-sm sm:text-base text-[#A7ADB5] leading-relaxed">
+          <p>
+            The fundamental difference between generic personal training and Advanced Ascension Athletics is <strong class="text-[#F5F6F7]">structured coaching and training oversight</strong>.
+          </p>
+          <p>
+            Most training brands sell isolated hours. When the hour ends, the coaching ends. At AAA, your in-person sessions are the high-touch execution window inside an ongoing, structured training ecosystem.
+          </p>
+          <p>
+            Whether you choose Foundation, Performance, Ascension, or Summit, the distinction between levels is simple: <strong class="text-[#F5F6F7]">How much of your physical training process does AAA actively direct and manage?</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: The Coaching Ladder (Card Grid) -->
+  <section class="py-20 bg-[#0f1014] text-[#F5F6F7] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Recurring Coaching Ladder"
+        title="Choose Your Level Of Involvement"
+        subtitle="All recurring coaching cycles run on 4-week billing intervals with formal progress assessments every 8 weeks."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+        {coachingLadder.map((tier) => (
+          <CoachingCard
+            title={tier.name}
+            price={tier.price}
+            billingCycle={tier.billingCycle}
+            commitment={tier.commitment}
+            positioning={tier.positioning}
+            frequency={tier.frequency}
+            oversight={tier.oversight}
+            isCore={tier.isCore}
+            isFlagship={tier.isFlagship}
+            badge={tier.badge}
+            features={tier.features}
+            ctaHref="/start-here?interest=coaching"
+          />
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Feature Comparison Table -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Side-By-Side Comparison"
+        title="Compare AAA Coaching Tiers"
+        subtitle="Review specific features, frequency, and level of oversight across all four levels of the AAA coaching ladder."
+      />
+
+      <div class="mt-8">
+        <ComparisonTable />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4: Decision Guidance -->
+  <section class="py-16 bg-[#22252C] border-b border-[#2D313A]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold uppercase text-[#F5F6F7]">
+        Not Sure Which Coaching Level You Need?
+      </h2>
+      <p class="text-base text-[#A7ADB5] leading-relaxed">
+        During your initial consultation or Baseline Assessment, AAA will evaluate your current training capacity, goals, schedule, and recovery demands to recommend the level of involvement appropriate for your needs.
+      </p>
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/start-here?interest=coaching"
+          class="bg-[#5B35A3] hover:bg-[#6E43C2] text-[#F5F6F7] font-semibold text-sm px-8 py-3.5 rounded transition-colors"
+        >
+          Start Your Ascension
+        </a>
+        <a
+          href="/baseline-assessment"
+          class="bg-[#181A1F] hover:bg-[#2D313A] border border-[#2D313A] text-[#F5F6F7] text-sm font-semibold px-8 py-3.5 rounded transition-colors"
+        >
+          Book Baseline Assessment ($149)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+
+  <Footer slot="footer" />
+</BaseLayout>

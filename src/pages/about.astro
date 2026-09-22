@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CTASection from '../components/CTASection.astro';
+import { coachData } from '../data/coach';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout
+  title="Meet Your Coach | Advanced Ascension Athletics"
+  description="Meet Branden Young, founder and coach at Advanced Ascension Athletics LLC in Colorado Springs. Athlete. Coach. Father. Student of Performance."
+>
+  <Header slot="header" />
+
+  <!-- Hero Section -->
+  <Hero
+    eyebrow="Founder & Head Coach"
+    title={coachData.bioHeadline}
+    highlightText="Branden Young"
+    subtitle="Advanced Ascension Athletics was founded in 2023 to deliver authentic, structured performance coaching in Colorado Springs. Built on discipline, exercise science, empathy, and an unyielding commitment to client capability."
+    primaryCtaText="Start Your Ascension"
+    primaryCtaHref="/start-here"
+    secondaryCtaText="Explore Coaching Ladder"
+    secondaryCtaHref="/coaching"
+  />
+
+  <!-- Section 1: The Founder's Story & Philosophy -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="text-xs font-semibold uppercase tracking-widest text-[#F5F6F7] bg-[#22252C] px-3 py-1 rounded border border-[#2D313A] inline-block">
+            Coach Biography
+          </span>
+          
+          <p class="text-base sm:text-lg text-[#F5F6F7] leading-relaxed">
+            {coachData.introParagraph}
+          </p>
+
+          <p class="text-base text-[#A7ADB5] leading-relaxed">
+            {coachData.momentParagraph}
+          </p>
+
+          <p class="text-base text-[#A7ADB5] leading-relaxed">
+            {coachData.becomeMoreParagraph}
+          </p>
+
+          <p class="text-base text-[#A7ADB5] leading-relaxed">
+            {coachData.philosophyParagraph}
+          </p>
+
+          <div class="pt-2 border-t border-[#2D313A] space-y-2 text-xs text-[#858B94]">
+            <p>• {coachData.militaryNote}</p>
+            <p>• {coachData.fatherhoodNote}</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-[#22252C] p-8 rounded-lg border border-[#2D313A] space-y-6">
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] border-b border-[#2D313A] pb-3">
+            Credentials & Coaching Scope
+          </h3>
+          
+          <div class="space-y-4">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-[#F5F6F7] block mb-2">Verified Qualifications</span>
+              <ul class="space-y-2 text-sm text-[#A7ADB5]">
+                {coachData.credentials.map((cred) => (
+                  <li class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[#5B35A3] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{cred}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="pt-4 border-t border-[#2D313A]">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#F5F6F7] block mb-2">Primary Coaching Specialties</span>
+              <ul class="space-y-2 text-xs text-[#A7ADB5]">
+                {coachData.specialties.map((spec) => (
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#5B35A3]"></span>
+                    <span>{spec}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="pt-4 border-t border-[#2D313A] text-xs text-[#858B94]">
+              <p>Coaching delivered in-person at Peak Performance Fitness & Yoga in Colorado Springs, CO.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Support Doesn't Mean Lowering The Standard -->
+  <section class="py-20 bg-[#0f1014] text-[#F5F6F7] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <span class="text-xs font-semibold uppercase tracking-widest text-[#A7ADB5]">
+          Brand Personality
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold uppercase tracking-tight text-[#F5F6F7]">
+          Support Doesn't Mean Lowering The Standard.
+        </h2>
+        <p class="text-base text-[#A7ADB5] leading-relaxed">
+          At AAA, we acknowledge that training is difficult. Clients have demanding jobs, families, stress, travel, fatigue, and setbacks. We bring deep empathy and respect to every client's journey.
+        </p>
+        <p class="text-base text-[#A7ADB5] leading-relaxed">
+          However, support should never become permission to continually avoid difficult things. When you have been appropriately prepared, the movement is appropriate, and the challenge is discomfort rather than safety — AAA expects execution.
+        </p>
+
+        <!-- Signature Quote Card -->
+        <div class="bg-[#181A1F] p-8 rounded-lg border border-[#2D313A] mt-8 shadow-xl">
+          <blockquote class="text-3xl font-display font-bold uppercase tracking-wide text-[#F5F6F7] mb-3">
+            "Nobody cares. Lift the weight."
+          </blockquote>
+          <p class="text-xs text-[#A7ADB5] italic max-w-lg mx-auto">
+            A representative coaching attitude: acknowledge difficulty without letting difficulty make every decision.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+
+  <Footer slot="footer" />
+</BaseLayout>

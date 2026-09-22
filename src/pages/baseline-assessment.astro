@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import IntakeForm from '../components/IntakeForm.astro';
+import CTASection from '../components/CTASection.astro';
+import { standaloneServices } from '../data/services';
+---
+
+<BaseLayout
+  title="AAA Baseline Assessment ($149 Standalone) | Colorado Springs"
+  description="Comprehensive 75–90 minute athletic assessment evaluating movement quality, mobility, stability, functional strength, and work capacity in Colorado Springs."
+>
+  <Header slot="header" />
+
+  <Hero
+    eyebrow="Primary Diagnostic Entry Service"
+    title="Determine Your True Starting Point."
+    highlightText={`${standaloneServices.baselineAssessment.name} (${standaloneServices.baselineAssessment.price})`}
+    subtitle={standaloneServices.baselineAssessment.summary}
+    primaryCtaText="Book Baseline Assessment"
+    primaryCtaHref="#book-form"
+    secondaryCtaText="Explore Coaching Ladder"
+    secondaryCtaHref="/coaching"
+  />
+
+  <!-- Section 1: Assessment Modules -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Assessment Scope"
+        title="What Your Assessment May Include"
+        subtitle="Testing is individualized according to your background, goals, and current fitness level."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        
+        <div class="bg-[#22252C] p-6 rounded border border-[#2D313A]">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">Module 01</span>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Movement Quality</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            May include mobility, active joint stability, motor control, and foundational movement patterns.
+          </p>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded border border-[#2D313A]">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">Module 02</span>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Strength & Capacity</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            May include appropriate strength or repetition-based testing tailored to experience and goals.
+          </p>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded border border-[#2D313A]">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">Module 03</span>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Work Capacity</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            May include aerobic, stamina, or work-capacity benchmarks appropriate to the athlete.
+          </p>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded border border-[#2D313A]">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">Module 04</span>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Goal-Specific Performance</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            May include power, agility, carries, HYROX-specific stations, or other relevant performance measures.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: What You Leave With + Service Rule -->
+  <section class="py-16 bg-[#0f1014] text-[#F5F6F7] border-b border-[#2D313A]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-3xl font-display font-bold uppercase text-[#F5F6F7]">
+        What You Leave With
+      </h2>
+      <p class="text-base text-[#A7ADB5] leading-relaxed">
+        At the conclusion of your assessment, you will leave with a clear understanding of where you currently stand, important training priorities, and an actionable recommendation for your next phase of development.
+      </p>
+
+      <div class="bg-[#181A1F] p-6 rounded-lg border border-[#2D313A] max-w-2xl mx-auto text-left space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#A7ADB5] block">Service Rule</span>
+        <p class="text-sm font-semibold text-[#F5F6F7]">
+          {standaloneServices.baselineAssessment.rule}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Booking Form -->
+  <section id="book-form" class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        eyebrow="Schedule Your Session"
+        title="Book Your AAA Baseline Assessment"
+        subtitle="Select the Baseline Assessment pathway below. AAA will follow up directly to schedule your session at Peak Performance Fitness & Yoga."
+      />
+      <IntakeForm defaultPath="Baseline Assessment" />
+    </div>
+  </section>
+
+  <CTASection />
+
+  <Footer slot="footer" />
+</BaseLayout>

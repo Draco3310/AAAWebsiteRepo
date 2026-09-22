@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-graphite-950: #0f1014;
+  --color-graphite-900: #181A1F; /* Performance Graphite */
+  --color-graphite-800: #22252C;
+  --color-graphite-700: #2D313A;
+  --color-graphite-600: #3E434F;
+  
+  --color-violet-600: #5B35A3; /* Ascension Violet */
+  --color-violet-500: #6E43C2;
+  --color-violet-700: #4A2A85;
+  --color-violet-800: #381E68;
+  --color-violet-900: #261347;
+
+  --color-titanium-300: #C2C7CE;
+  --color-titanium-400: #A7ADB5; /* Titanium */
+  --color-titanium-500: #858B94;
+  --color-titanium-600: #626770;
+
+  --color-summit-white: #F5F6F7; /* Summit White */
+  --color-summit-subtle: #EAEBED;
+
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-display: 'Oswald', 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-graphite-900);
+  color: var(--color-summit-white);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #181A1F;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D313A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5B35A3;
+}

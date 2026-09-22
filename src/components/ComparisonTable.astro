@@ -1,0 +1,78 @@
+---
+const comparisonRows = [
+  {
+    feature: "Private 60-Min Sessions / Cycle",
+    foundation: "4 sessions (~1/wk)",
+    performance: "8 sessions (~2/wk)",
+    ascension: "12 sessions (~3/wk)",
+    summit: "12 sessions (~3/wk)"
+  },
+  {
+    feature: "Individualized TrainHeroic Programming",
+    foundation: "Included",
+    performance: "Included (Complete)",
+    ascension: "Included (Complete)",
+    summit: "Included (Complete)"
+  },
+  {
+    feature: "Weekly Progress Check-in",
+    foundation: "Independent structure",
+    performance: "Weekly check-in",
+    ascension: "Weekly structured check-in",
+    summit: "Weekly performance check-in"
+  },
+  {
+    feature: "Dedicated Mobility/Recovery Sessions",
+    foundation: "Programmed",
+    performance: "Programmed",
+    ascension: "1 × 30-min session/cycle",
+    summit: "4 × 30-min sessions/cycle"
+  },
+  {
+    feature: "Priority Scheduling & Travel Programming",
+    foundation: "Standard",
+    performance: "Standard",
+    ascension: "Priority + Travel plans",
+    summit: "Priority + Full Travel plans"
+  },
+  {
+    feature: "Formal Reassessment",
+    foundation: "Every 8 weeks",
+    performance: "Every 8 weeks",
+    ascension: "Every 8 weeks",
+    summit: "Every 8 weeks + 90-min Intensive"
+  },
+  {
+    feature: "Capacity & Focus",
+    foundation: "Direction & Progression",
+    performance: "Core AAA Coaching",
+    ascension: "High-Frequency Performance",
+    summit: "Max 4 clients (Concierge)"
+  }
+];
+---
+
+<div class="overflow-x-auto rounded-lg border border-[#2D313A] bg-[#181A1F] shadow-lg">
+  <table class="w-full text-left text-sm text-[#A7ADB5] border-collapse min-w-[700px]">
+    <thead class="bg-[#22252C] text-xs font-semibold uppercase text-[#F5F6F7] border-b border-[#2D313A]">
+      <tr>
+        <th scope="col" class="py-4 px-5">Feature</th>
+        <th scope="col" class="py-4 px-4 text-center">Foundation <br/><span class="text-xs text-[#A7ADB5] font-normal">$499/4wks</span></th>
+        <th scope="col" class="py-4 px-4 text-center bg-[#5B35A3]/20 border-x border-[#5B35A3]/40">Performance <br/><span class="text-xs text-[#5B35A3] font-bold">$899/4wks</span></th>
+        <th scope="col" class="py-4 px-4 text-center">Ascension <br/><span class="text-xs text-[#A7ADB5] font-normal">$1,299/4wks</span></th>
+        <th scope="col" class="py-4 px-4 text-center">Summit <br/><span class="text-xs text-[#A7ADB5] font-normal">$2,195/4wks</span></th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-[#2D313A]">
+      {comparisonRows.map((row, idx) => (
+        <tr class={idx % 2 === 0 ? 'bg-[#181A1F]' : 'bg-[#181A1F]/50'}>
+          <td class="py-3.5 px-5 font-semibold text-[#F5F6F7] text-xs uppercase tracking-wide">{row.feature}</td>
+          <td class="py-3.5 px-4 text-center">{row.foundation}</td>
+          <td class="py-3.5 px-4 text-center bg-[#5B35A3]/10 font-medium text-[#F5F6F7] border-x border-[#5B35A3]/20">{row.performance}</td>
+          <td class="py-3.5 px-4 text-center">{row.ascension}</td>
+          <td class="py-3.5 px-4 text-center text-[#F5F6F7] font-medium">{row.summit}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

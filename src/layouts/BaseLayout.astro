@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import { siteConfig } from '../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  type?: string;
+}
+
+const {
+  title = "Advanced Ascension Athletics | Colorado Springs Performance Coaching",
+  description = siteConfig.description,
+  canonical = Astro.url.href,
+  type = "website"
+} = Astro.props;
+
+const fullTitle = title.includes("Advanced Ascension Athletics") ? title : `${title} | Advanced Ascension Athletics`;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": siteConfig.name,
+  "alternateName": siteConfig.shortName,
+  "description": siteConfig.description,
+  "url": siteConfig.url,
+  "areaServed": {
+    "@type": "City",
+    "name": "Colorado Springs"
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/assets/aaa-icon.png" />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.name} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={siteConfig.name} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  </head>
+  <body class="bg-[#181A1F] text-[#F5F6F7] min-h-screen flex flex-col font-sans selection:bg-[#5B35A3] selection:text-white">
+    <slot name="header" />
+    <main class="flex-grow" id="main-content">
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>

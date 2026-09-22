@@ -1,0 +1,118 @@
+---
+import { siteConfig } from '../config/site';
+
+const currentYear = new Date().getFullYear();
+
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Coaching Ladder', href: '/coaching' },
+  { name: 'HYROX Specialty Vertical', href: '/hyrox' },
+  { name: 'The AAA Method', href: '/method' },
+  { name: 'Meet Your Coach', href: '/about' },
+  { name: 'Proof of Progress', href: '/results' },
+  { name: 'Start Here', href: '/start-here' },
+];
+
+const serviceLinks = [
+  { name: 'Colorado Springs Personal Training', href: '/colorado-springs-personal-training' },
+  { name: 'AAA Baseline Assessment ($149)', href: '/baseline-assessment' },
+  { name: 'Semi-Private Coaching (2:1 to 4:1)', href: '/semi-private-coaching' },
+  { name: 'Private Drop-In ($110)', href: '/private-drop-in' },
+];
+---
+
+<footer class="bg-[#0f1014] text-[#A7ADB5] border-t border-[#2D313A] pt-16 pb-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#2D313A]">
+      
+      <!-- Brand & Tagline -->
+      <div class="space-y-4">
+        <a href="/" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3] rounded">
+          <div class="w-8 h-8 rounded bg-[#22252C] border border-[#5B35A3]/60 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-[#F5F6F7]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 3L3 19H21L12 3Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 9L7 19H17L12 9Z" fill="#5B35A3" stroke="none"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-display font-bold text-base tracking-wider text-[#F5F6F7] uppercase block leading-none">
+              ADVANCED ASCENSION
+            </span>
+            <span class="text-[10px] font-semibold tracking-widest text-[#A7ADB5] uppercase mt-0.5 block">
+              ATHLETICS
+            </span>
+          </div>
+        </a>
+        <p class="text-sm text-[#A7ADB5] font-medium leading-relaxed">
+          {siteConfig.tagline}
+        </p>
+        <p class="text-xs text-[#858B94] leading-relaxed">
+          Developing physical capability, resilience, athleticism, and work capacity through structured, progressive coaching.
+        </p>
+      </div>
+
+      <!-- Main Navigation -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] mb-4">Navigation</h3>
+        <ul class="space-y-2.5 text-sm">
+          {navLinks.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-[#F5F6F7] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#5B35A3] rounded">
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Services & Offerings -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] mb-4">Coaching & Offerings</h3>
+        <ul class="space-y-2.5 text-sm">
+          {serviceLinks.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-[#F5F6F7] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#5B35A3] rounded">
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Facility & Location -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] mb-4">Location & Facility</h3>
+        <div class="space-y-3 text-sm text-[#A7ADB5]">
+          <p class="font-medium text-[#F5F6F7]">
+            In-Person Facility Footprint:
+          </p>
+          <p class="text-xs leading-relaxed">
+            {siteConfig.location.facility}<br />
+            {siteConfig.location.city}, {siteConfig.location.state}
+          </p>
+          <div class="bg-[#181A1F] p-3 rounded border border-[#2D313A] text-xs text-[#858B94] leading-relaxed">
+            {siteConfig.location.facilityNote}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scope & Disclaimer -->
+    <div class="pt-8 pb-4 text-xs text-[#858B94] space-y-3 leading-relaxed">
+      <p>
+        <strong class="text-[#A7ADB5]">Professional Scope:</strong> Advanced Ascension Athletics LLC (AAA) provides strength, conditioning, athletic development, and performance lifestyle coaching within professional scope. AAA does not provide medical diagnosis, physical therapy, medical rehabilitation, or medical nutrition therapy. Clients with pre-existing medical conditions should consult appropriate licensed medical professionals.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t border-[#22252C] text-[#858B94]">
+        <p>© {currentYear} Advanced Ascension Athletics LLC. All rights reserved.</p>
+        <div class="flex items-center gap-4 text-[11px]">
+          <span>Colorado Springs, CO</span>
+          <span>•</span>
+          <span>One Body. One Path. Become More.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>

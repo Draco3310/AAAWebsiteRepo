@@ -1,0 +1,337 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CoachingCard from '../components/CoachingCard.astro';
+import CTASection from '../components/CTASection.astro';
+import { coachingLadder, standaloneServices } from '../data/services';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout
+  title="Advanced Ascension Athletics | Colorado Springs Performance Coaching"
+  description={siteConfig.description}
+>
+  <Header slot="header" />
+
+  <!-- Hero Section -->
+  <Hero
+    eyebrow="Colorado Springs • In-Person Performance Coaching"
+    title="You Are Capable of More."
+    highlightText="One Body. One Path. Become More."
+    subtitle="Fear, doubt, inexperience, and past failures often convince people to remain where they are comfortable. Training provides an opportunity to prove those assumptions wrong through individualized strength, conditioning, athletic development, and performance coaching."
+    primaryCtaText="Start Your Ascension"
+    primaryCtaHref="/start-here"
+    secondaryCtaText="Explore Coaching"
+    secondaryCtaHref="/coaching"
+  />
+
+  <!-- Section 1: Core Value Proposition -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="The AAA Purpose"
+        title="Training Should Change What You're Capable Of."
+        subtitle="AAA does not exist simply to make clients sweaty or exhausted. Training should build capability that carries beyond the workout."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        
+        <div class="bg-[#22252C] p-6 rounded-lg border border-[#2D313A] hover:border-[#5B35A3]/50 transition-colors">
+          <div class="w-10 h-10 rounded bg-[#5B35A3]/20 flex items-center justify-center text-[#F5F6F7] font-bold mb-4">
+            01
+          </div>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Build Strength</h3>
+          <p class="text-sm text-[#A7ADB5] leading-relaxed">
+            Develop functional force production and barbell strength that translates directly into everyday life, sport, and demanding physical environments.
+          </p>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded-lg border border-[#2D313A] hover:border-[#5B35A3]/50 transition-colors">
+          <div class="w-10 h-10 rounded bg-[#5B35A3]/20 flex items-center justify-center text-[#F5F6F7] font-bold mb-4">
+            02
+          </div>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Improve Work Capacity</h3>
+          <p class="text-sm text-[#A7ADB5] leading-relaxed">
+            Expand your aerobic engine, stamina, and work capacity under fatigue so you can sustain high output without breakdown.
+          </p>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded-lg border border-[#2D313A] hover:border-[#5B35A3]/50 transition-colors">
+          <div class="w-10 h-10 rounded bg-[#5B35A3]/20 flex items-center justify-center text-[#F5F6F7] font-bold mb-4">
+            03
+          </div>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Refine Movement Quality</h3>
+          <p class="text-sm text-[#A7ADB5] leading-relaxed">
+            Improve mobility, joint stability, and movement mechanics to execute exercises efficiently and maintain lifelong capability.
+          </p>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded-lg border border-[#2D313A] hover:border-[#5B35A3]/50 transition-colors">
+          <div class="w-10 h-10 rounded bg-[#5B35A3]/20 flex items-center justify-center text-[#F5F6F7] font-bold mb-4">
+            04
+          </div>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Confidence Through Achievement</h3>
+          <p class="text-sm text-[#A7ADB5] leading-relaxed">
+            Discover the profound psychological shift that occurs when you lift a weight or reach a benchmark you once doubted you could achieve.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Become More Philosophy -->
+  <section class="py-20 bg-[#0f1014] text-[#F5F6F7] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="text-xs font-semibold uppercase tracking-widest text-[#F5F6F7] bg-[#22252C] px-3 py-1 rounded border border-[#2D313A] inline-block">
+            Brand Philosophy
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-display font-bold uppercase tracking-tight text-[#F5F6F7]">
+            Become More. <br />
+            <span class="text-[#A7ADB5]">Let Go Of Fear, Doubt, And Self-Imposed Limits.</span>
+          </h2>
+          <p class="text-base text-[#A7ADB5] leading-relaxed">
+            AAA is not a generic personal-training brand or a high-volume studio. We exist because training is one of the primary mechanisms through which physical self-discovery happens.
+          </p>
+          <p class="text-base text-[#A7ADB5] leading-relaxed">
+            A core AAA coaching moment happens when a client completes a difficult set, moves a weight they doubted they could lift, or reaches a benchmark they believed was beyond them — and realizes: <strong class="text-[#F5F6F7]">"I can actually do this."</strong>
+          </p>
+          <p class="text-base text-[#A7ADB5] leading-relaxed">
+            We do not "transform" you for you. AAA provides the structure, expertise, accountability, progression, and opportunities that allow you to prove your capability to yourself.
+          </p>
+          <div class="pt-4 flex items-center gap-4">
+            <a href="/about" class="bg-[#22252C] hover:bg-[#2D313A] border border-[#2D313A] text-[#F5F6F7] text-sm font-semibold px-6 py-3 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3]">
+              Meet Your Coach & Read Philosophy
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="bg-[#181A1F] p-8 rounded-lg border border-[#2D313A] relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-[#5B35A3]/10 rounded-full blur-2xl"></div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-[#A7ADB5] block mb-3">Coaching Attitude</span>
+            <blockquote class="text-2xl font-display font-bold uppercase tracking-tight text-[#F5F6F7] leading-snug mb-4">
+              "Nobody cares. <br />Lift the weight."
+            </blockquote>
+            <p class="text-xs text-[#A7ADB5] leading-relaxed">
+              Empathy without enabling. We acknowledge that training is difficult and that real life brings stress, uncertainty, and fatigue. But support does not become permission to continually avoid hard things. Once you are properly prepared, AAA expects execution.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Coaching Ladder Preview -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Structured Coaching Relationships"
+        title="You're Not Buying Workouts. You're Building A Training System."
+        subtitle="All recurring AAA coaching levels integrate private in-person coaching, individualized TrainHeroic programming, progression, accountability, and periodic reassessment."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        {coachingLadder.map((tier) => (
+          <CoachingCard
+            title={tier.name}
+            price={tier.price}
+            billingCycle={tier.billingCycle}
+            commitment={tier.commitment}
+            positioning={tier.positioning}
+            frequency={tier.frequency}
+            oversight={tier.oversight}
+            isCore={tier.isCore}
+            isFlagship={tier.isFlagship}
+            badge={tier.badge}
+            features={tier.features}
+            ctaHref={`/start-here?interest=coaching`}
+          />
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="/coaching" class="inline-flex items-center gap-2 text-sm font-semibold text-[#F5F6F7] hover:text-white transition-colors bg-[#22252C] px-6 py-3 rounded border border-[#2D313A]">
+          <span>Compare All Tiers & View Full Feature Table</span>
+          <svg class="w-4 h-4 text-[#5B35A3]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4: HYROX Specialty Vertical -->
+  <section class="py-20 bg-[#0f1014] text-[#F5F6F7] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-semibold uppercase tracking-widest text-[#F5F6F7] bg-[#22252C] px-3 py-1 rounded border border-[#2D313A] inline-block">
+            Specialty Vertical
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-display font-bold uppercase tracking-tight text-[#F5F6F7]">
+            HYROX Specialty Coaching <br />
+            <span class="text-[#A7ADB5]">Demands More Than Fitness.</span>
+          </h2>
+          <p class="text-base text-[#A7ADB5] leading-relaxed">
+            Running. Strength. Work capacity. Station efficiency. Pacing. Transitions. HYROX performance depends on how well these athletic qualities interact across an entire race.
+          </p>
+          <p class="text-base text-[#A7ADB5] leading-relaxed">
+            AAA integrates custom HYROX programming directly into our established coaching ladder. We target compromised running, ergometer technique, station strength, and pacing strategy.
+          </p>
+          <div>
+            <a href="/hyrox" class="bg-[#5B35A3] hover:bg-[#6E43C2] text-[#F5F6F7] text-sm font-semibold px-6 py-3 rounded transition-colors inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+              Explore HYROX Coaching
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+          <div class="bg-[#181A1F] p-5 rounded border border-[#2D313A]">
+            <span class="text-xs font-bold text-[#F5F6F7] uppercase block mb-1">01. Compromised Running</span>
+            <p class="text-xs text-[#A7ADB5]">Training your legs to maintain sustainable pace immediately after heavy station work.</p>
+          </div>
+          <div class="bg-[#181A1F] p-5 rounded border border-[#2D313A]">
+            <span class="text-xs font-bold text-[#F5F6F7] uppercase block mb-1">02. Station Efficiency</span>
+            <p class="text-xs text-[#A7ADB5]">Refining SkiErg, Rowing, Sled, and Wall Ball mechanics to conserve energy.</p>
+          </div>
+          <div class="bg-[#181A1F] p-5 rounded border border-[#2D313A]">
+            <span class="text-xs font-bold text-[#F5F6F7] uppercase block mb-1">03. Aerobic Work Capacity</span>
+            <p class="text-xs text-[#A7ADB5]">Building an aerobic engine and stamina required for sustained race effort.</p>
+          </div>
+          <div class="bg-[#181A1F] p-5 rounded border border-[#2D313A]">
+            <span class="text-xs font-bold text-[#F5F6F7] uppercase block mb-1">04. Transition Strategy</span>
+            <p class="text-xs text-[#A7ADB5]">Minimizing wasted time and heart-rate spikes in the Roxzone between laps.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Baseline Assessment Feature -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-[#22252C] rounded-lg p-8 sm:p-12 border border-[#2D313A] relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-8 space-y-4">
+            <span class="text-xs font-semibold uppercase tracking-widest text-[#F5F6F7] bg-[#181A1F] px-3 py-1 rounded border border-[#2D313A] inline-block">
+              Diagnostic Entry Point
+            </span>
+            <h2 class="text-3xl font-display font-bold uppercase text-[#F5F6F7]">
+              {standaloneServices.baselineAssessment.name} ({standaloneServices.baselineAssessment.price} Standalone)
+            </h2>
+            <p class="text-sm text-[#A7ADB5] leading-relaxed">
+              {standaloneServices.baselineAssessment.summary}
+            </p>
+            <p class="text-xs text-[#858B94]">
+              * Note: {standaloneServices.baselineAssessment.rule}
+            </p>
+          </div>
+
+          <div class="lg:col-span-4 text-center lg:text-right">
+            <a
+              href="/baseline-assessment"
+              class="bg-[#5B35A3] hover:bg-[#6E43C2] text-[#F5F6F7] font-semibold text-sm px-6 py-3.5 rounded transition-colors inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              Book Baseline Assessment
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Progress Measurement Preview -->
+  <section class="py-20 bg-[#0f1014] text-[#F5F6F7] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Objective Measurement"
+        title="Progress Should Be Measurable."
+        subtitle="AAA measures progress in usable physical capacity: strength, conditioning, work capacity, movement quality, and event benchmarks."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-12">
+        <div class="bg-[#181A1F] p-5 rounded border border-[#2D313A] text-center">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] block mb-1">Strength</span>
+          <p class="text-xs text-[#A7ADB5]">Relevant lifts, repetitions, and force production.</p>
+        </div>
+
+        <div class="bg-[#181A1F] p-5 rounded border border-[#2D313A] text-center">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] block mb-1">Work Capacity</span>
+          <p class="text-xs text-[#A7ADB5]">Sustained useful output under workload demands.</p>
+        </div>
+
+        <div class="bg-[#181A1F] p-5 rounded border border-[#2D313A] text-center">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] block mb-1">Conditioning</span>
+          <p class="text-xs text-[#A7ADB5]">Aerobic base, stamina, and effort repeatability.</p>
+        </div>
+
+        <div class="bg-[#181A1F] p-5 rounded border border-[#2D313A] text-center">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] block mb-1">Movement Quality</span>
+          <p class="text-xs text-[#A7ADB5]">Mobility, stability, control, and efficiency.</p>
+        </div>
+
+        <div class="bg-[#181A1F] p-5 rounded border border-[#2D313A] text-center">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] block mb-1">HYROX Benchmarks</span>
+          <p class="text-xs text-[#A7ADB5]">Station mechanics, pacing, and compromised run splits.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center">
+        <a href="/results" class="text-sm font-semibold text-[#F5F6F7] hover:text-white transition-colors bg-[#22252C] px-6 py-3 rounded border border-[#2D313A] inline-block">
+          How AAA Measures Progress & Proof of Progress System →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 7: Facility Distinction -->
+  <section class="py-16 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-[#22252C] p-8 rounded-lg border border-[#2D313A] grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        
+        <div class="md:col-span-8 space-y-3">
+          <span class="text-xs font-semibold uppercase tracking-widest text-[#A7ADB5]">
+            In-Person Facility Footprint
+          </span>
+          <h3 class="text-2xl font-display font-bold uppercase text-[#F5F6F7]">
+            Coaching Delivered At Peak Performance Fitness & Yoga
+          </h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            {siteConfig.location.facilityNote}
+          </p>
+        </div>
+
+        <div class="md:col-span-4 text-left md:text-right">
+          <a
+            href="/colorado-springs-personal-training"
+            class="bg-[#181A1F] hover:bg-[#2D313A] border border-[#2D313A] text-[#F5F6F7] text-xs font-semibold px-5 py-3 rounded inline-block transition-colors"
+          >
+            Colorado Springs Personal Training Info
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <CTASection />
+
+  <Footer slot="footer" />
+</BaseLayout>

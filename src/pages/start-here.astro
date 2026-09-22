@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import IntakeForm from '../components/IntakeForm.astro';
+import { standaloneServices } from '../data/services';
+---
+
+<BaseLayout
+  title="Start Here | Advanced Ascension Athletics"
+  description="Begin your path with Advanced Ascension Athletics. Select your entry pathway and complete the intake form."
+>
+  <Header slot="header" />
+
+  <section class="py-16 sm:py-24 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Initiate Contact"
+        title="Your Path Starts Here."
+        subtitle="Select your entry pathway below and complete the short intake request. AAA will review your information and follow up directly to schedule your next step."
+      />
+
+      <!-- Pathway Choices Breakdown -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
+        
+        <div class="bg-[#22252C] p-6 rounded-lg border border-[#2D313A] relative">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">Pathway 01</span>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Ongoing AAA Coaching</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed mb-4">
+            For individuals seeking ongoing structured personal coaching (Foundation, Performance, Ascension, or Summit) in Colorado Springs.
+          </p>
+          <span class="text-[11px] font-semibold text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block">
+            Includes Baseline Assessment
+          </span>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded-lg border border-[#5B35A3] relative shadow-lg">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">Pathway 02</span>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Baseline Assessment</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed mb-4">
+            Standalone $149 75–90 minute athletic diagnostic testing movement quality, mobility, strength, and work capacity.
+          </p>
+          <span class="text-[11px] font-semibold text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block">
+            $149 Standalone Service
+          </span>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded-lg border border-[#2D313A] relative">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">Pathway 03</span>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Peak Performance Prospect</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed mb-4">
+            Complimentary consultation pathway for prospects coming through Peak Performance Fitness & Yoga in Colorado Springs.
+          </p>
+          <span class="text-[11px] font-semibold text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block">
+            Complimentary Consultation
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Native Intake Form -->
+      <IntakeForm defaultPath="Ongoing AAA Coaching" />
+
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

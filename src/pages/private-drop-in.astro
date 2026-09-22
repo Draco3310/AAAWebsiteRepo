@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import IntakeForm from '../components/IntakeForm.astro';
+import CTASection from '../components/CTASection.astro';
+import { standaloneServices } from '../data/services';
+---
+
+<BaseLayout
+  title="Private Drop-In Training ($110) | Advanced Ascension Athletics"
+  description="Single 60-minute private performance coaching session in Colorado Springs. Technique refinement, movement instruction, or visiting athlete training."
+>
+  <Header slot="header" />
+
+  <Hero
+    eyebrow="Single 60-Minute Session"
+    title="Targeted Performance Coaching."
+    highlightText={`${standaloneServices.privateDropIn.name} (${standaloneServices.privateDropIn.price})`}
+    subtitle={standaloneServices.privateDropIn.summary}
+    primaryCtaText="Book Private Drop-In"
+    primaryCtaHref="#book-dropin"
+    secondaryCtaText="Explore Coaching Ladder"
+    secondaryCtaHref="/coaching"
+  />
+
+  <!-- Section 1: Ideal Use Cases -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Flexible Entry Option"
+        title="When To Choose A Private Drop-In"
+        subtitle="Designed for focused technical work or temporary scheduling needs without recurring commitment."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        
+        <div class="bg-[#22252C] p-6 rounded border border-[#2D313A]">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">Use Case 01</span>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Technique Refinement</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            Mastering complex barbell lifts or specific HYROX ergometer techniques.
+          </p>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded border border-[#2D313A]">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">Use Case 02</span>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Visiting Athletes</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            Traveling athletes or visitors in Colorado Springs seeking high-level strength & conditioning oversight.
+          </p>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded border border-[#2D313A]">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">Use Case 03</span>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Movement Instruction</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            Addressing movement bottlenecks or learning proper biomechanics for specific exercises.
+          </p>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded border border-[#2D313A]">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">Use Case 04</span>
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Short-Term Coaching</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            One-off race preparation review, strategy tune-up, or trial coaching experience.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Form -->
+  <section id="book-dropin" class="py-20 bg-[#0f1014] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        eyebrow="Request Session"
+        title="Schedule Your Private Drop-In ($110)"
+        subtitle="Complete the short request form below and AAA will contact you directly to confirm availability."
+      />
+      <IntakeForm defaultPath="Private Drop-In" />
+    </div>
+  </section>
+
+  <CTASection />
+
+  <Footer slot="footer" />
+</BaseLayout>

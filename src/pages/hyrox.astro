@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CTASection from '../components/CTASection.astro';
+import { hyroxData } from '../data/hyrox';
+import { coachingLadder } from '../data/services';
+---
+
+<BaseLayout
+  title="HYROX Specialty Coaching | Advanced Ascension Athletics"
+  description="Specialized HYROX coaching in Colorado Springs. Compromised running, station efficiency, ergometer mechanics, pacing strategy, and race simulations."
+>
+  <Header slot="header" />
+
+  <!-- Hero Section -->
+  <Hero
+    eyebrow="Specialty Vertical • Colorado Springs"
+    title={hyroxData.heroTitle}
+    highlightText={hyroxData.heroSubtitle}
+    subtitle={hyroxData.overview}
+    primaryCtaText="Start HYROX Coaching"
+    primaryCtaHref="/start-here?interest=hyrox"
+    secondaryCtaText="Explore The AAA Method"
+    secondaryCtaHref="/method"
+  />
+
+  <!-- Section 1: HYROX Race Execution Elements -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Race Performance Mechanics"
+        title="Key Elements Of HYROX Performance"
+        subtitle="HYROX performance depends on how well running, station execution, pacing, transitions, and fatigue management hold together across the entire race."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {hyroxData.keyElements.map((elem, idx) => (
+          <div class="bg-[#22252C] p-6 rounded-lg border border-[#2D313A]">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">
+              0{idx + 1}
+            </span>
+            <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">{elem.title}</h3>
+            <p class="text-sm text-[#A7ADB5] leading-relaxed">{elem.description}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: One Coaching Ladder, HYROX-Specific Programming -->
+  <section class="py-20 bg-[#0f1014] text-[#F5F6F7] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <span class="text-xs font-semibold uppercase tracking-widest text-[#A7ADB5] mb-2 block">
+          One Coaching Ladder. HYROX-Specific Programming.
+        </span>
+        <h2 class="text-3xl font-display font-bold uppercase text-[#F5F6F7]">
+          HYROX Specialization Uses The Established AAA Ladder
+        </h2>
+        <p class="text-base text-[#A7ADB5] mt-4 leading-relaxed">
+          The level of coaching involvement remains Foundation, Performance, Ascension, or Summit. HYROX changes the programming objective—not the pricing architecture.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {coachingLadder.map((tier) => (
+          <div class={`p-6 rounded border text-center ${tier.isCore ? 'bg-[#22252C] border-[#5B35A3]' : 'bg-[#181A1F] border-[#2D313A]'}`}>
+            <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-1">{tier.name} HYROX</h3>
+            <span class="text-lg font-bold text-[#F5F6F7] block mb-3">{tier.price} <span class="text-xs font-normal text-[#A7ADB5]">/ 4wks</span></span>
+            <p class="text-xs text-[#A7ADB5] leading-relaxed">{tier.frequency}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Diagnostic Baseline -->
+  <section class="py-16 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold uppercase text-[#F5F6F7]">
+        Start With A HYROX Baseline Assessment ($149)
+      </h2>
+      <p class="text-base text-[#A7ADB5] leading-relaxed">
+        Test your current aerobic baseline, compromised run pace, ergometer efficiency, and station strength in a 75–90 minute assessment at Peak Performance Fitness & Yoga in Colorado Springs.
+      </p>
+      <div class="pt-4">
+        <a href="/start-here?interest=hyrox" class="bg-[#5B35A3] hover:bg-[#6E43C2] text-[#F5F6F7] font-semibold text-sm px-8 py-3.5 rounded transition-colors inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+          Book HYROX Baseline Assessment
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+
+  <Footer slot="footer" />
+</BaseLayout>

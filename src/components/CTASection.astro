@@ -1,0 +1,66 @@
+---
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  primaryCtaText?: string;
+  primaryCtaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+}
+
+const {
+  eyebrow = "Ready To Discover What You Are Capable Of?",
+  title = "Start Your Ascension Today",
+  subtitle = "Whether you are looking for structured personal coaching in Colorado Springs, preparing for HYROX, or seeking a complete diagnostic baseline, your path begins here.",
+  primaryCtaText = "Start Your Ascension",
+  primaryCtaHref = "/start-here",
+  secondaryCtaText = "Explore Coaching",
+  secondaryCtaHref = "/coaching"
+} = Astro.props;
+---
+
+<section class="bg-gradient-to-b from-[#181A1F] via-[#22252C] to-[#181A1F] border-t border-b border-[#2D313A] py-16 sm:py-24 relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#5B35A3]/15 via-transparent to-transparent pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    {eyebrow && (
+      <span class="text-xs font-semibold uppercase tracking-widest text-[#5B35A3] mb-3 block">
+        {eyebrow}
+      </span>
+    )}
+
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold uppercase tracking-tight text-[#F5F6F7] leading-tight mb-6">
+      {title}
+    </h2>
+
+    <p class="text-base sm:text-lg text-[#A7ADB5] max-w-2xl mx-auto leading-relaxed mb-8">
+      {subtitle}
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href={primaryCtaHref}
+        class="w-full sm:w-auto bg-[#5B35A3] hover:bg-[#6E43C2] text-[#F5F6F7] font-semibold text-base px-8 py-4 rounded-md transition-all duration-200 shadow-lg shadow-[#5B35A3]/25 flex items-center justify-center gap-2 group"
+      >
+        <span>{primaryCtaText}</span>
+        <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+
+      {secondaryCtaText && (
+        <a
+          href={secondaryCtaHref}
+          class="w-full sm:w-auto bg-[#181A1F] hover:bg-[#22252C] border border-[#2D313A] text-[#F5F6F7] font-semibold text-base px-8 py-4 rounded-md transition-colors text-center"
+        >
+          {secondaryCtaText}
+        </a>
+      )}
+    </div>
+
+    <div class="mt-8 text-xs text-[#858B94]">
+      <span>In-Person Coaching Facility: Peak Performance Fitness & Yoga • Colorado Springs, CO</span>
+    </div>
+  </div>
+</section>

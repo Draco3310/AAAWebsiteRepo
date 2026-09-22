@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CoachingCard from '../components/CoachingCard.astro';
+import CTASection from '../components/CTASection.astro';
+import { coachingLadder } from '../data/services';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout
+  title="Colorado Springs Personal Training | Advanced Ascension Athletics"
+  description="Individualized personal training, strength, conditioning, and athletic development in Colorado Springs. In-person coaching delivered at Peak Performance Fitness & Yoga."
+>
+  <Header slot="header" />
+
+  <Hero
+    eyebrow="Colorado Springs Personal Training"
+    title="Personal Training Built For Capability."
+    highlightText="Colorado Springs, CO"
+    subtitle="Elevate your physical performance with individualized strength, work capacity, and athletic development coaching in Colorado Springs. In-person performance sessions coached at Peak Performance Fitness & Yoga."
+    primaryCtaText="Start Your Ascension"
+    primaryCtaHref="/start-here"
+    secondaryCtaText="Explore Coaching Ladder"
+    secondaryCtaHref="/coaching"
+  />
+
+  <!-- Section 1: Local Service Overview -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Local Performance Coaching"
+        title="Why AAA Personal Training Is Different"
+        subtitle="We do not sell generic workout hours or count reps passively. AAA manages your training progression through structured TrainHeroic programming and private coaching."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div class="bg-[#22252C] p-6 rounded border border-[#2D313A]">
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Facility Footprint</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            Coached out of Peak Performance Fitness & Yoga in Colorado Springs, providing a focused training environment with high-end barbell, turf, ergometer, and mobility equipment.
+          </p>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded border border-[#2D313A]">
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">Baseline Testing</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            Every client begins with a 75–90 minute Baseline Assessment to evaluate movement quality, joint mobility, stability, aerobic capacity, and strength metrics.
+          </p>
+        </div>
+
+        <div class="bg-[#22252C] p-6 rounded border border-[#2D313A]">
+          <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">8-Week Reassessments</h3>
+          <p class="text-xs text-[#A7ADB5] leading-relaxed">
+            Relevant performance metrics are reassessed every 8 weeks to track measurable progress, update TrainHeroic targets, and guide the next block of progressive overload.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Coaching Tiers Preview -->
+  <section class="py-20 bg-[#0f1014] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        eyebrow="Recurring Service Levels"
+        title="Available Coaching Tiers in Colorado Springs"
+        subtitle="Choose the level of coaching involvement that matches your schedule and goals."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        {coachingLadder.map((tier) => (
+          <CoachingCard
+            title={tier.name}
+            price={tier.price}
+            billingCycle={tier.billingCycle}
+            positioning={tier.positioning}
+            frequency={tier.frequency}
+            oversight={tier.oversight}
+            isCore={tier.isCore}
+            isFlagship={tier.isFlagship}
+            badge={tier.badge}
+            features={tier.features}
+            ctaHref="/start-here?interest=coaching"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+
+  <Footer slot="footer" />
+</BaseLayout>

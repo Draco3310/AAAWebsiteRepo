@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import IntakeForm from '../components/IntakeForm.astro';
+import CTASection from '../components/CTASection.astro';
+import { standaloneServices } from '../data/services';
+---
+
+<BaseLayout
+  title="Semi-Private Coaching Pods (2:1 to 4:1) | Advanced Ascension Athletics"
+  description="Small-group semi-private coaching in Colorado Springs. Shared accountability and expert coaching for couples, training partners, and HYROX pods."
+>
+  <Header slot="header" />
+
+  <Hero
+    eyebrow="Small Group Performance Coaching"
+    title="Shared Energy. Uncompromised Coaching."
+    highlightText="2:1 to 4:1 Ratio Coaching"
+    subtitle={standaloneServices.semiPrivate.summary}
+    primaryCtaText="Inquire About Semi-Private Pods"
+    primaryCtaHref="#inquire-form"
+    secondaryCtaText="Explore Coaching Ladder"
+    secondaryCtaHref="/coaching"
+  />
+
+  <!-- Section 1: Pricing Breakdown -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Semi-Private Rates"
+        title="Tiered Coaching Pod Options"
+        subtitle="Shared coaching environment maintaining strict movement instruction and progressive overload standards."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-5xl mx-auto">
+        {standaloneServices.semiPrivate.rates.map((item) => (
+          <div class="bg-[#22252C] p-8 rounded-lg border border-[#2D313A] text-center space-y-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block">{item.ratio}</span>
+            <h3 class="text-2xl font-display font-bold uppercase text-[#F5F6F7]">{item.ratio} Coaching Pod</h3>
+            <div class="py-2">
+              <span class="text-4xl font-bold text-[#F5F6F7]">{item.rate}</span>
+              <span class="text-xs text-[#A7ADB5] font-medium"> / {item.unit}</span>
+            </div>
+            <p class="text-xs text-[#A7ADB5] leading-relaxed">
+              Suitable for couples, training partners, athletic development groups, or HYROX training pods.
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-8 text-center text-xs text-[#858B94]">
+        * Note: Groups larger than 4:1 are not currently marketed or coached as semi-private coaching.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Form -->
+  <section id="inquire-form" class="py-20 bg-[#0f1014] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        eyebrow="Pod Intake"
+        title="Request Semi-Private Coaching"
+        subtitle="Submit your inquiry below detailing your group size and training objectives."
+      />
+      <IntakeForm defaultPath="Semi-Private Coaching" />
+    </div>
+  </section>
+
+  <CTASection />
+
+  <Footer slot="footer" />
+</BaseLayout>

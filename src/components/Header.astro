@@ -1,0 +1,139 @@
+---
+import { siteConfig } from '../config/site';
+
+const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Coaching', href: '/coaching' },
+  { name: 'HYROX', href: '/hyrox' },
+  { name: 'The AAA Method', href: '/method' },
+  { name: 'About', href: '/about' },
+  { name: 'Results', href: '/results' },
+  { name: 'Start Here', href: '/start-here' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-[#181A1F]/95 backdrop-blur-md border-b border-[#2D313A]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Typographic Brand Lockup with Geometric Accent -->
+      <a href="/" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#181A1F] rounded-md p-1">
+        <!-- SVG Geometric Icon Accent -->
+        <div class="w-8 h-8 rounded bg-[#22252C] border border-[#5B35A3]/60 flex items-center justify-center shrink-0 group-hover:border-[#5B35A3] transition-colors">
+          <svg class="w-5 h-5 text-[#F5F6F7]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 3L3 19H21L12 3Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 9L7 19H17L12 9Z" fill="#5B35A3" stroke="none"/>
+          </svg>
+        </div>
+
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-base sm:text-lg tracking-wider text-[#F5F6F7] uppercase leading-none">
+            ADVANCED ASCENSION
+          </span>
+          <span class="text-[10px] font-semibold tracking-widest text-[#A7ADB5] uppercase mt-0.5">
+            ATHLETICS
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+        {navItems.map((item) => {
+          const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+          return (
+            <a
+              href={item.href}
+              class={`px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3] ${
+                isActive 
+                  ? 'text-[#F5F6F7] bg-[#22252C] border-b-2 border-[#5B35A3]' 
+                  : 'text-[#A7ADB5] hover:text-[#F5F6F7] hover:bg-[#22252C]/50'
+              }`}
+            >
+              {item.name}
+            </a>
+          );
+        })}
+      </nav>
+
+      <!-- Right CTA -->
+      <div class="hidden sm:flex items-center">
+        <a
+          href="/start-here"
+          class="bg-[#5B35A3] hover:bg-[#6E43C2] text-[#F5F6F7] font-semibold text-sm px-5 py-2.5 rounded-md transition-all duration-200 shadow-md shadow-[#5B35A3]/20 hover:shadow-[#5B35A3]/40 flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        >
+          <span>Start Your Ascension</span>
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex lg:hidden">
+        <button
+          type="button"
+          id="mobile-menu-button"
+          class="inline-flex items-center justify-center p-2 rounded-md text-[#A7ADB5] hover:text-white hover:bg-[#22252C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3]"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg id="menu-icon-open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="hidden lg:hidden border-b border-[#2D313A] bg-[#181A1F]" id="mobile-menu">
+    <div class="px-4 pt-2 pb-6 space-y-1 sm:px-3">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+        return (
+          <a
+            href={item.href}
+            class={`block px-3 py-2.5 rounded-md text-base font-medium transition-colors ${
+              isActive 
+                ? 'text-[#F5F6F7] bg-[#22252C] border-l-4 border-[#5B35A3]' 
+                : 'text-[#A7ADB5] hover:text-[#F5F6F7] hover:bg-[#22252C]/50'
+            }`}
+          >
+            {item.name}
+          </a>
+        );
+      })}
+      <div class="pt-4 mt-2 border-t border-[#2D313A]">
+        <a
+          href="/start-here"
+          class="w-full bg-[#5B35A3] hover:bg-[#6E43C2] text-[#F5F6F7] font-semibold text-center block px-5 py-3 rounded-md transition-colors"
+        >
+          Start Your Ascension
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  const openIcon = document.getElementById('menu-icon-open');
+  const closeIcon = document.getElementById('menu-icon-close');
+
+  if (btn && menu && openIcon && closeIcon) {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', (!isExpanded).toString());
+      menu.classList.toggle('hidden');
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+  }
+</script>

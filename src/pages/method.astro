@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CTASection from '../components/CTASection.astro';
+
+const stages = [
+  {
+    number: "01",
+    title: "Assess",
+    subtitle: "Determine the real starting point.",
+    description: "Establish a meaningful starting point using assessments appropriate to the client's goals, experience, and current ability. We evaluate movement quality, joint mobility, stability, functional strength, and work capacity."
+  },
+  {
+    number: "02",
+    title: "Individualize",
+    subtitle: "Build around the client's actual life and body.",
+    description: "We do not sell template plans. Your TrainHeroic program is custom-crafted around your goals, training history, current ability, weekly schedule, available equipment, recovery capacity, and response to training."
+  },
+  {
+    number: "03",
+    title: "Progress",
+    subtitle: "Deliberate progression through structured overload.",
+    description: "Training must have direction. Through planned progression, movement instruction, and volume management, we ensure every session contributes to measurable physical adaptations."
+  },
+  {
+    number: "04",
+    title: "Adapt",
+    subtitle: "Dynamic adjustments based on real-time readiness.",
+    description: "Real life brings stress, travel, fatigue, and schedule disruptions. AAA coaching adjusts training loads and session focus based on daily readiness, sustaining momentum without burnout."
+  },
+  {
+    number: "05",
+    title: "Reassess",
+    subtitle: "Measure progress, learn, and plan the next phase.",
+    description: "Relevant performance measures are reassessed every 8 weeks based on the client's goals and training plan — using objective data to guide the next phase of training."
+  }
+];
+
+const pillars = [
+  { title: "Progressive Overload", desc: "Systematically increasing demands on the neuromuscular system over time to trigger sustainable physical adaptations." },
+  { title: "Periodization", desc: "Structuring training into distinct blocks to develop strength, work capacity, and goal-specific performance." },
+  { title: "Strength & Power", desc: "Building force production, movement stability, and durability as the foundation for physical capability." },
+  { title: "Conditioning & Work Capacity", desc: "Developing efficient aerobic base and stamina to handle high workloads without physical breakdown." },
+  { title: "Mobility & Stability", desc: "Enhancing active range of motion, motor control, and joint integrity to execute movements efficiently." },
+  { title: "Recovery & Adaptation", desc: "Prioritizing sleep, stress management, mobility, and active recovery as essential components of progress." }
+];
+---
+
+<BaseLayout
+  title="The AAA Method | Advanced Ascension Athletics"
+  description="Learn about the 5-stage systematic performance methodology behind Advanced Ascension Athletics: Assess, Individualize, Progress, Adapt, and Reassess."
+>
+  <Header slot="header" />
+
+  <!-- Hero Section -->
+  <Hero
+    eyebrow="Systematic Performance Methodology"
+    title="One Body. One Path."
+    highlightText="A Systematic Approach To Physical Capability."
+    subtitle="Physical capability is not created by accident or extreme exhaustion. It is built through a structured, scientific, and repeatable coaching framework that respects your individuality while demanding your best honest effort."
+    primaryCtaText="Start Your Ascension"
+    primaryCtaHref="/start-here"
+    secondaryCtaText="Explore Coaching Ladder"
+    secondaryCtaHref="/coaching"
+  />
+
+  <!-- Section 1: The 5-Stage Framework -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="The 5-Stage AAA Coaching Cycle"
+        title="How We Guide Your Physical Evolution"
+        subtitle="Our methodology is designed to eliminate guesswork and produce continuous, measurable athletic progress."
+      />
+
+      <div class="space-y-8 mt-12 max-w-4xl mx-auto">
+        {stages.map((stage) => (
+          <div class="bg-[#22252C] rounded-lg p-6 sm:p-8 border border-[#2D313A] flex flex-col md:flex-row gap-6 items-start">
+            <div class="w-14 h-14 rounded-lg bg-[#5B35A3]/20 border border-[#5B35A3]/40 flex items-center justify-center shrink-0">
+              <span class="font-display font-bold text-2xl text-[#F5F6F7]">{stage.number}</span>
+            </div>
+            <div class="space-y-2 flex-grow">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-2xl font-display font-bold uppercase text-[#F5F6F7]">
+                  {stage.title}
+                </h3>
+                <span class="text-xs font-semibold text-[#A7ADB5] uppercase tracking-wider">{stage.subtitle}</span>
+              </div>
+              <p class="text-sm text-[#A7ADB5] leading-relaxed pt-1">
+                {stage.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Shared Responsibility Operating Principle -->
+  <section class="py-16 bg-[#0f1014] text-[#F5F6F7] border-b border-[#2D313A]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <span class="text-xs font-semibold uppercase tracking-widest text-[#A7ADB5]">
+        Shared Operating Principle
+      </span>
+      <h2 class="text-3xl font-display font-bold uppercase text-[#F5F6F7]">
+        Coaching Is A Shared Responsibility.
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mt-8">
+        <div class="bg-[#181A1F] p-6 rounded border border-[#2D313A] space-y-2">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7]">AAA Provides:</span>
+          <ul class="text-xs text-[#A7ADB5] space-y-1.5 list-disc pl-4">
+            <li>Professional coaching expertise</li>
+            <li>Individualized TrainHeroic programming</li>
+            <li>Structured progression & accountability</li>
+            <li>Movement feedback & technique instruction</li>
+            <li>Periodic progress reassessment</li>
+          </ul>
+        </div>
+
+        <div class="bg-[#181A1F] p-6 rounded border border-[#2D313A] space-y-2">
+          <span class="text-xs font-bold uppercase text-[#F5F6F7]">The Client Provides:</span>
+          <ul class="text-xs text-[#A7ADB5] space-y-1.5 list-disc pl-4">
+            <li>Honest communication about readiness & recovery</li>
+            <li>Consistency in training execution</li>
+            <li>Communication when schedule or health changes</li>
+            <li>The best honest effort available that day</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Pillars -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Scientific Foundations"
+        title="Training Pillars"
+        subtitle="We translate exercise science into practical, high-impact coaching during every session."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {pillars.map((pillar) => (
+          <div class="bg-[#22252C] p-6 rounded-lg border border-[#2D313A]">
+            <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">
+              {pillar.title}
+            </h3>
+            <p class="text-sm text-[#A7ADB5] leading-relaxed">
+              {pillar.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <CTASection />
+
+  <Footer slot="footer" />
+</BaseLayout>

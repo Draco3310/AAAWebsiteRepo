@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import GoogleReviews from '../components/GoogleReviews.astro';
+import CTASection from '../components/CTASection.astro';
+
+const categories = [
+  {
+    title: "Strength",
+    description: "Relevant lifts, repetitions, relative force production, and goal-specific strength metrics."
+  },
+  {
+    title: "Work Capacity",
+    description: "The ability to sustain useful physical output across progressively demanding training sessions."
+  },
+  {
+    title: "Conditioning",
+    description: "Aerobic engine development, repeatability, stamina, and event-specific conditioning capacity."
+  },
+  {
+    title: "Movement Quality",
+    description: "Mobility, active joint control, motor stability, and execution of required movement patterns."
+  },
+  {
+    title: "Athletic Capability",
+    description: "Power, coordination, carries, locomotion, and practical functional performance."
+  },
+  {
+    title: "HYROX Benchmarks",
+    description: "Station execution mechanics, compromised running pace, pacing strategy, and race split progress."
+  }
+];
+---
+
+<BaseLayout
+  title="Proof of Progress | Advanced Ascension Athletics"
+  description="Explore how Advanced Ascension Athletics measures progress through objective physical capacity: strength, work capacity, conditioning, movement quality, and HYROX benchmarks."
+>
+  <Header slot="header" />
+
+  <!-- Hero Section -->
+  <Hero
+    eyebrow="Objective Measurement System"
+    title="Proof Of Progress."
+    highlightText="Capability Proved, Not Promised."
+    subtitle="Progress should be demonstrated through meaningful changes in physical capability rather than vague promises. AAA evaluates progress across six core performance pillars tailored to your specific goals."
+    primaryCtaText="Start Your Progression"
+    primaryCtaHref="/start-here"
+    secondaryCtaText="Book Baseline Assessment ($149)"
+    secondaryCtaHref="/baseline-assessment"
+  />
+
+  <!-- Section 1: What AAA Measures -->
+  <section class="py-20 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <SectionHeader
+        eyebrow="Evaluation Categories"
+        title="What AAA Measures"
+        subtitle="Individualized assessments tracking physical capability over time."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {categories.map((cat, idx) => (
+          <div class="bg-[#22252C] p-6 rounded-lg border border-[#2D313A]">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#F5F6F7] bg-[#181A1F] px-2.5 py-1 rounded border border-[#2D313A] inline-block mb-3">
+              Pillar 0{idx + 1}
+            </span>
+            <h3 class="text-xl font-display font-bold uppercase text-[#F5F6F7] mb-2">{cat.title}</h3>
+            <p class="text-sm text-[#A7ADB5] leading-relaxed">{cat.description}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Verified Client Stories / Google Reviews Integration Point -->
+  <section class="py-20 bg-[#0f1014] text-[#F5F6F7] border-b border-[#2D313A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        eyebrow="Verified Feedback"
+        title="Verified Client Stories"
+        subtitle="Only real, approved client experiences and documented outcomes will appear here."
+      />
+
+      <div class="mt-8">
+        <GoogleReviews />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Reassessment Philosophy -->
+  <section class="py-16 bg-[#181A1F] border-b border-[#2D313A]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <span class="text-xs font-semibold uppercase tracking-widest text-[#A7ADB5]">
+        The AAA Reassessment Standard
+      </span>
+      <h2 class="text-3xl font-display font-bold uppercase text-[#F5F6F7]">
+        Reassessed Every 8 Weeks.
+      </h2>
+      <p class="text-base text-[#A7ADB5] leading-relaxed">
+        Progress is not left to chance. Relevant performance measures are reassessed every 8 weeks based on your goals and training plan, ensuring continuous adaptation and structured overload.
+      </p>
+      <div class="pt-4">
+        <a href="/start-here" class="bg-[#5B35A3] hover:bg-[#6E43C2] text-[#F5F6F7] font-semibold text-sm px-8 py-3.5 rounded transition-colors inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+          Start Your Ascension
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+
+  <Footer slot="footer" />
+</BaseLayout>

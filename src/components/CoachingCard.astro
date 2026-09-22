@@ -1,0 +1,113 @@
+---
+interface Props {
+  title: string;
+  price: string;
+  billingCycle?: string;
+  commitment?: string;
+  positioning: string;
+  frequency: string;
+  oversight: string;
+  features: string[];
+  isCore?: boolean;
+  isFlagship?: boolean;
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  title,
+  price,
+  billingCycle = "every 4 weeks",
+  commitment,
+  positioning,
+  frequency,
+  oversight,
+  features,
+  isCore = false,
+  isFlagship = false,
+  ctaText = "Start Your Ascension",
+  ctaHref = "/start-here"
+} = Astro.props;
+---
+
+<div class={`relative rounded-lg p-6 sm:p-8 flex flex-col justify-between transition-all duration-200 border ${
+  isFlagship 
+    ? 'bg-gradient-to-b from-[#22252C] via-[#181A1F] to-[#181A1F] border-[#5B35A3] shadow-xl shadow-[#5B35A3]/10 ring-1 ring-[#5B35A3]/50'
+    : isCore 
+      ? 'bg-[#22252C]/90 border-[#5B35A3]/70 shadow-lg' 
+      : 'bg-[#181A1F] border-[#2D313A] hover:border-[#3E434F]'
+}`}>
+
+  {isCore && (
+    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#5B35A3] text-white text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow">
+      Core AAA Coaching Product
+    </div>
+  )}
+
+  {isFlagship && (
+    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#5B35A3] to-[#A7ADB5] text-white text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow">
+      Flagship Concierge Service
+    </div>
+  )}
+
+  <div>
+    <!-- Title & Price -->
+    <div class="border-b border-[#2D313A] pb-6 mb-6">
+      <h3 class="text-2xl font-display font-bold uppercase text-[#F5F6F7] tracking-wide mb-2">
+        {title}
+      </h3>
+      <div class="flex items-baseline gap-1.5">
+        <span class="text-3xl sm:text-4xl font-bold text-[#F5F6F7] tracking-tight">{price}</span>
+        <span class="text-xs font-medium text-[#A7ADB5]">{billingCycle}</span>
+      </div>
+      {commitment && (
+        <span class="inline-block mt-2 text-xs font-semibold text-[#5B35A3] bg-[#5B35A3]/10 px-2.5 py-0.5 rounded border border-[#5B35A3]/30">
+          {commitment}
+        </span>
+      )}
+      <p class="mt-3 text-sm italic text-[#A7ADB5] font-medium">
+        "{positioning}"
+      </p>
+    </div>
+
+    <!-- Overview details -->
+    <div class="space-y-3 mb-6 text-xs text-[#A7ADB5]">
+      <div class="flex items-center justify-between bg-[#181A1F]/60 p-2.5 rounded border border-[#2D313A]">
+        <span class="font-semibold text-[#F5F6F7]">Coaching Frequency:</span>
+        <span class="text-[#F5F6F7] font-medium">{frequency}</span>
+      </div>
+      <div class="flex items-center justify-between bg-[#181A1F]/60 p-2.5 rounded border border-[#2D313A]">
+        <span class="font-semibold text-[#F5F6F7]">Level of Oversight:</span>
+        <span class="text-[#F5F6F7] font-medium">{oversight}</span>
+      </div>
+    </div>
+
+    <!-- Core inclusions list -->
+    <div class="space-y-3 mb-8">
+      <span class="text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] block mb-2">Included in {title}:</span>
+      <ul class="space-y-2.5 text-sm text-[#A7ADB5]">
+        {features.map((feature) => (
+          <li class="flex items-start gap-2.5">
+            <svg class="w-4 h-4 text-[#5B35A3] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="leading-snug">{feature}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Action CTA -->
+  <a
+    href={ctaHref}
+    class={`w-full text-center py-3 px-4 rounded-md font-semibold text-sm transition-all duration-200 block ${
+      isFlagship || isCore
+        ? 'bg-[#5B35A3] hover:bg-[#6E43C2] text-[#F5F6F7] shadow-md shadow-[#5B35A3]/20'
+        : 'bg-[#22252C] hover:bg-[#2D313A] border border-[#2D313A] text-[#F5F6F7]'
+    }`}
+  >
+    {ctaText}
+  </a>
+
+</div>

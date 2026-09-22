@@ -1,0 +1,303 @@
+---
+import { siteConfig } from '../config/site';
+
+interface Props {
+  defaultPath?: string;
+}
+
+const {
+  defaultPath = "Ongoing AAA Coaching"
+} = Astro.props;
+
+const formEndpoint = siteConfig.formEndpoint;
+---
+
+<div class="bg-[#22252C] rounded-lg p-6 sm:p-10 border border-[#2D313A] shadow-xl max-w-2xl mx-auto">
+  
+  <div id="form-container">
+    <form
+      id="aaa-intake-form"
+      data-endpoint={formEndpoint}
+      class="space-y-6"
+      aria-live="polite"
+    >
+      
+      <!-- Error summary banner -->
+      <div id="form-error-banner" class="hidden bg-red-950/80 border border-red-500 text-red-200 text-xs p-4 rounded-md space-y-1">
+        <strong class="font-bold block">Submission Problem:</strong>
+        <p id="form-error-message">Unable to transmit request. Please check your connection and try again.</p>
+      </div>
+
+      <!-- Pathway / Intent selection -->
+      <div>
+        <label for="interest" class="block text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] mb-2">
+          Select Your Pathway <span class="text-[#5B35A3]">*</span>
+        </label>
+        <select
+          id="interest"
+          name="interest"
+          required
+          class="w-full bg-[#181A1F] border border-[#2D313A] rounded-md px-4 py-3 text-sm text-[#F5F6F7] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3] transition-colors"
+        >
+          <option value="Ongoing AAA Coaching" selected={defaultPath === "Ongoing AAA Coaching"}>
+            Ongoing AAA Coaching (Foundation / Performance / Ascension / Summit)
+          </option>
+          <option value="Baseline Assessment" selected={defaultPath === "Baseline Assessment"}>
+            AAA Baseline Assessment ($149 Standalone)
+          </option>
+          <option value="Semi-Private Coaching" selected={defaultPath === "Semi-Private Coaching"}>
+            Semi-Private Coaching Pod (2:1 to 4:1)
+          </option>
+          <option value="Peak Performance Prospect" selected={defaultPath === "Peak Performance Prospect"}>
+            Peak Performance Prospect (Complimentary Consultation)
+          </option>
+          <option value="HYROX Coaching" selected={defaultPath === "HYROX Coaching"}>
+            HYROX Specialty Coaching
+          </option>
+          <option value="Private Drop-In" selected={defaultPath === "Private Drop-In"}>
+            Private Drop-In ($110 Session)
+          </option>
+        </select>
+      </div>
+
+      <!-- Full Name -->
+      <div>
+        <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] mb-2">
+          Full Name <span class="text-[#5B35A3]">*</span>
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="e.g., Alex Mercer"
+          class="w-full bg-[#181A1F] border border-[#2D313A] rounded-md px-4 py-3 text-sm text-[#F5F6F7] placeholder-[#858B94] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3] transition-colors"
+        />
+      </div>
+
+      <!-- Contact Info Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] mb-2">
+            Email Address <span class="text-[#5B35A3]">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="alex@example.com"
+            class="w-full bg-[#181A1F] border border-[#2D313A] rounded-md px-4 py-3 text-sm text-[#F5F6F7] placeholder-[#858B94] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3] transition-colors"
+          />
+        </div>
+
+        <div>
+          <label for="phone" class="block text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] mb-2">
+            Phone Number <span class="text-[#858B94] font-normal">(Optional)</span>
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="(719) 555-0199"
+            class="w-full bg-[#181A1F] border border-[#2D313A] rounded-md px-4 py-3 text-sm text-[#F5F6F7] placeholder-[#858B94] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3] transition-colors"
+          />
+        </div>
+      </div>
+
+      <!-- Primary Goal -->
+      <div>
+        <label for="goal" class="block text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] mb-2">
+          Primary Objective / What would you like help with? <span class="text-[#5B35A3]">*</span>
+        </label>
+        <input
+          type="text"
+          id="goal"
+          name="goal"
+          required
+          placeholder="e.g., Build strength, HYROX preparation, improve work capacity & athleticism"
+          class="w-full bg-[#181A1F] border border-[#2D313A] rounded-md px-4 py-3 text-sm text-[#F5F6F7] placeholder-[#858B94] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3] transition-colors"
+        />
+      </div>
+
+      <!-- Experience & Desired Frequency Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label for="experience" class="block text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] mb-2">
+            Current Training Background
+          </label>
+          <select
+            id="experience"
+            name="experience"
+            class="w-full bg-[#181A1F] border border-[#2D313A] rounded-md px-4 py-3 text-sm text-[#F5F6F7] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3] transition-colors"
+          >
+            <option value="" selected>Select training background...</option>
+            <option value="Beginner / Returning">Beginner / Returning to training</option>
+            <option value="Intermediate">Intermediate (Consistent training)</option>
+            <option value="Advanced / Competitive">Advanced / Competitive athlete</option>
+            <option value="HYROX Competitor">HYROX specific competitor</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="frequency" class="block text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] mb-2">
+            General Coaching Interest
+          </label>
+          <select
+            id="frequency"
+            name="frequency"
+            class="w-full bg-[#181A1F] border border-[#2D313A] rounded-md px-4 py-3 text-sm text-[#F5F6F7] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3] transition-colors"
+          >
+            <option value="Not sure yet - need recommendation" selected>Not sure yet — I'd like AAA to recommend</option>
+            <option value="1 session / week (Foundation)">1 session / week (Foundation)</option>
+            <option value="2 sessions / week (Performance)">2 sessions / week (Performance)</option>
+            <option value="3 sessions / week (Ascension / Summit)">3 sessions / week (Ascension / Summit)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Optional Message -->
+      <div>
+        <label for="notes" class="block text-xs font-semibold uppercase tracking-wider text-[#F5F6F7] mb-2">
+          Anything you'd like me to know before we talk? <span class="text-[#858B94] font-normal">(Optional)</span>
+        </label>
+        <textarea
+          id="notes"
+          name="notes"
+          rows="3"
+          placeholder="Anything about your goals, schedule, upcoming event, or training situation you'd like me to know..."
+          class="w-full bg-[#181A1F] border border-[#2D313A] rounded-md px-4 py-3 text-sm text-[#F5F6F7] placeholder-[#858B94] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B35A3] transition-colors"
+        ></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button
+          type="submit"
+          id="submit-btn"
+          class="w-full bg-[#5B35A3] hover:bg-[#6E43C2] text-[#F5F6F7] font-semibold text-base py-4 rounded-md transition-all duration-200 shadow-lg shadow-[#5B35A3]/25 flex items-center justify-center gap-2 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <span id="submit-text">Start Your Ascension</span>
+          <svg id="submit-arrow" class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+          <svg id="submit-spinner" class="hidden animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Inline Confirmation State -->
+  <div id="form-success" class="hidden text-center py-12 px-4 space-y-4" tabindex="-1">
+    <div class="w-16 h-16 bg-[#5B35A3]/20 border border-[#5B35A3] rounded-full flex items-center justify-center mx-auto text-[#5B35A3]">
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+    <h3 class="text-2xl font-display font-bold uppercase text-[#F5F6F7]">
+      Information Received
+    </h3>
+    <p class="text-base text-[#A7ADB5] max-w-md mx-auto leading-relaxed">
+      Thanks — your information has been sent. AAA will follow up with you directly.
+    </p>
+    <div class="pt-4">
+      <span class="text-xs text-[#858B94] font-semibold uppercase tracking-widest block">
+        One Body. One Path. Become More.
+      </span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Handle URL query parameter pre-selection
+  const urlParams = new URLSearchParams(window.location.search);
+  const interestParam = urlParams.get('interest');
+  const selectElem = document.getElementById('interest') as HTMLSelectElement | null;
+
+  if (interestParam && selectElem) {
+    const map: Record<string, string> = {
+      'hyrox': 'HYROX Coaching',
+      'baseline': 'Baseline Assessment',
+      'semiprivate': 'Semi-Private Coaching',
+      'dropin': 'Private Drop-In',
+      'coaching': 'Ongoing AAA Coaching'
+    };
+    const targetVal = map[interestParam.toLowerCase()];
+    if (targetVal) {
+      selectElem.value = targetVal;
+    }
+  }
+
+  const form = document.getElementById('aaa-intake-form') as HTMLFormElement | null;
+  const container = document.getElementById('form-container');
+  const successState = document.getElementById('form-success');
+  const errorBanner = document.getElementById('form-error-banner');
+  const errorMessage = document.getElementById('form-error-message');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const submitText = document.getElementById('submit-text');
+  const submitArrow = document.getElementById('submit-arrow');
+  const submitSpinner = document.getElementById('submit-spinner');
+
+  if (form && container && successState) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBanner?.classList.add('hidden');
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const endpoint = form.dataset.endpoint;
+
+      // Development / unconfigured endpoint check
+      if (!endpoint) {
+        if (errorBanner && errorMessage) {
+          errorMessage.textContent = "The intake form is currently operating in local preview mode. (Endpoint unconfigured)";
+          errorBanner.classList.remove('hidden');
+        }
+        return;
+      }
+
+      // Set UI to loading state
+      if (submitBtn) submitBtn.disabled = true;
+      if (submitText) submitText.textContent = "Transmitting...";
+      if (submitArrow) submitArrow.classList.add('hidden');
+      if (submitSpinner) submitSpinner.classList.remove('hidden');
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          container.classList.add('hidden');
+          successState.classList.remove('hidden');
+          successState.focus();
+        } else {
+          throw new Error("Form submission returned an error from the server.");
+        }
+      } catch (err) {
+        if (errorBanner && errorMessage) {
+          errorMessage.textContent = "Unable to transmit request. Please check your network connection and try again.";
+          errorBanner.classList.remove('hidden');
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+        if (submitText) submitText.textContent = "Start Your Ascension";
+        if (submitArrow) submitArrow.classList.remove('hidden');
+        if (submitSpinner) submitSpinner.classList.add('hidden');
+      }
+    });
+  }
+</script>
